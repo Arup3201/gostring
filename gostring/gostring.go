@@ -2,6 +2,7 @@ package gostring
 
 import (
 	"strings"
+	"unicode"
 )
 
 func CapitalizeWords(s string) string {
@@ -18,7 +19,21 @@ func CapitalizeWords(s string) string {
 }
 
 func CountVowelsConsonents(s string) (int, int) {
-	return 0, 0
+	const VOWELS = "aeiouAEIOU"
+
+	cVowels, cConsonents := 0, 0
+
+	for _, r := range s {
+		if unicode.IsLetter(r) {
+			if strings.ContainsRune(VOWELS, r) {
+				cVowels++
+			} else {
+				cConsonents++
+			}
+		}
+	}
+
+	return cVowels, cConsonents
 }
 
 func IsPalindrome(s string) bool {
