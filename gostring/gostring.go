@@ -54,5 +54,14 @@ func IsPalindrome(s string) bool {
 }
 
 func ReverseString(s string) string {
-	return ""
+	low, high := 0, len(s)-1
+	runes := []rune(s)
+
+	for low < high {
+		runes[low], runes[high] = runes[high], runes[low]
+		low++
+		high--
+	}
+
+	return string(runes)
 }
