@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	bookTitle := "the lord of the rings"
+	bookTitle := "the lord of rings"
 
 	fmt.Printf("Original: %s\n", bookTitle)
 	fmt.Printf("Capitalize: %s\n", gostring.CapitalizeWords(bookTitle))

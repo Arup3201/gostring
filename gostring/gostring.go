@@ -37,7 +37,20 @@ func CountVowelsConsonents(s string) (int, int) {
 }
 
 func IsPalindrome(s string) bool {
-	return false
+	lowStrWithoutSpace := strings.ReplaceAll(strings.ToLower(s), " ", "")
+	strRunes := []rune(lowStrWithoutSpace)
+
+	low, high := 0, len(strRunes)-1
+	for low < high {
+		if strRunes[low] != strRunes[high] {
+			return false
+		}
+
+		low++
+		high--
+	}
+
+	return true
 }
 
 func ReverseString(s string) string {
